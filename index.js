@@ -4,13 +4,13 @@ const download = require("image-downloader");
 const saveImage = (url, path) => {
   options = {
     url: url,
-    dest: path, // will be saved to /path/to/dest/photo.jpg
+    dest: path,
   };
 
   download
     .image(options)
     .then(({ filename }) => {
-      console.log("Saved to", filename); // saved to /path/to/dest/photo.jpg
+      console.log("Saved to", filename);
     })
     .catch((err) => console.error(err));
 };
