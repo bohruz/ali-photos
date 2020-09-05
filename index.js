@@ -1,6 +1,10 @@
 const scrape = require("aliexpress-product-scraper");
 const download = require("image-downloader");
 
+function getProductID(url) {
+  return url.slice(url.search(/[0-9]*.html/), url.search(/.html/));
+}
+
 const saveImage = (url, path) => {
   options = {
     url: url,
@@ -16,7 +20,10 @@ const saveImage = (url, path) => {
 };
 
 // Product ID
-const product = scrape("4000299536893");
+const productID = getProductID(
+  "https://pt.aliexpress.com/item/33043942809.html"
+);
+const product = scrape(productID);
 
 product.then((res) => {
   let count = 0;
