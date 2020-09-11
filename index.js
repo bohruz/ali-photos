@@ -19,10 +19,10 @@ const saveImage = (url, path) => {
     .catch((err) => console.error(err));
 };
 
+const URL = "";
+
 // Product ID
-const productID = getProductID(
-  "https://pt.aliexpress.com/item/33043942809.html"
-);
+const productID = getProductID(URL);
 const product = scrape(productID);
 
 product.then((res) => {
